@@ -4,8 +4,8 @@ pragma solidity ^0.8.28;
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/Pausable.sol";
 
 error AlreadyClaimed();
 error InvalidProof();
@@ -376,7 +376,7 @@ contract MerkleDistributorV2 is Ownable, ReentrancyGuard, Pausable {
             phase.merkleRoot = merkleRoot;
         }
         
-        // Update drop amount if provided
+        // Update drop amount if provided 
         if (dropAmount > 0) {
             if (dropAmount > type(uint64).max) revert("Drop amount too large");
             phase.dropAmount = uint64(dropAmount);
