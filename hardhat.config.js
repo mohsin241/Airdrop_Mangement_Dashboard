@@ -13,9 +13,10 @@ module.exports = {
   },
   gasReporter: {
     enabled: true,
-    currency: "inr",
-    coinmarketcap: "f919547f-8e2d-4836-bd60-20cc7af46d81",
-    gasPriceApi: `https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=${process.env.etherscan}`
+    currency: 'INR',
+    gasPrice: 30, // in gwei (set this based on network)
+    coinmarketcap: 'f919547f-8e2d-4836-bd60-20cc7af46d81', // optional but useful
+    token: 'POL' // or 'BNB' depending on your network
   },
   etherscan:{
     apiKey:{
